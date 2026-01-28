@@ -1,85 +1,105 @@
-# 🧪 E2E Test Automation - E-Commerce Checkout Flow
+E2E Test Automation – E-Commerce Checkout Flow
+Test Overview
 
-## 📋 Test Overview
-Automated end-to-end testing untuk flow checkout e-commerce menggunakan Playwright. Test suite ini mencakup 6 skenario testing yang komprehensif.
+Automated end-to-end testing for an e-commerce checkout flow using Playwright.
+This test suite covers 6 comprehensive test scenarios to validate core user journeys and edge cases.
 
-## 🎯 Test Cases Coverage
+Test Cases Coverage
+TC001 – Complete Checkout Process
 
-### TC001 - Complete Checkout Process
-**Objective:** Memvalidasi full checkout flow dari login hingga order confirmation  
-**Steps:**
-- Login dengan kredensial valid
-- Add 2 produk ke cart
-- Proceed to checkout
-- Fill informasi customer
-- Complete order
-- Verify order confirmation
+Objective: Validate the full checkout flow from login to order confirmation
+Steps:
 
-**Expected Result:** Order berhasil dibuat dengan konfirmasi "Thank you for your order!"
+Login using valid credentials
 
----
+Add 2 products to the cart
 
-### TC002 - Empty Form Validation
-**Objective:** Memvalidasi error handling untuk form kosong  
-**Steps:**
-- Login dan add product
-- Navigate ke checkout
-- Submit tanpa mengisi informasi
+Proceed to checkout
 
-**Expected Result:** Error message "First Name is required" muncul
+Fill in customer information
 
----
+Complete the order
 
-### TC003 - Cart Management
-**Objective:** Memvalidasi fungsi remove item dari cart  
-**Steps:**
-- Add 3 produk ke cart
-- Remove 1 produk
-- Verify cart count
+Verify order confirmation
 
-**Expected Result:** Cart badge update dari 3 menjadi 2
+Expected Result:
+Order is successfully created with confirmation message “Thank you for your order!”
 
----
+TC002 – Empty Form Validation
 
-### TC004 - Product Sorting
-**Objective:** Memvalidasi sorting functionality  
-**Steps:**
-- Sort produk by price (low to high)
-- Verify urutan harga ascending
+Objective: Validate error handling for empty checkout form submission
+Steps:
 
-**Expected Result:** Produk tersortir dengan benar
+Login and add a product
 
----
+Navigate to checkout
 
-### TC005 - Continue Shopping Navigation
-**Objective:** Memvalidasi navigation flow  
-**Steps:**
-- Add product dan go to cart
-- Click "Continue Shopping"
+Submit the form without filling in customer information
 
-**Expected Result:** Kembali ke products page, cart tetap berisi item
+Expected Result:
+Error message “First Name is required” is displayed
 
----
+TC003 – Cart Management
 
-### TC006 - Logout Functionality
-**Objective:** Memvalidasi logout process  
-**Steps:**
-- Login
-- Open menu dan logout
+Objective: Validate remove item functionality from the cart
+Steps:
 
-**Expected Result:** Redirect ke login page
+Add 3 products to the cart
 
----
+Remove 1 product
 
-## 🛠️ Tech Stack
-- **Framework:** Playwright
-- **Language:** JavaScript
-- **Test Pattern:** Page Object Model concepts
-- **Assertions:** Playwright expect library
+Verify cart item count
 
-## 📦 Setup & Installation
+Expected Result:
+Cart badge updates from 3 to 2
 
-```bash
+TC004 – Product Sorting
+
+Objective: Validate product sorting functionality
+Steps:
+
+Sort products by price (low to high)
+
+Verify prices are displayed in ascending order
+
+Expected Result:
+Products are sorted correctly
+
+TC005 – Continue Shopping Navigation
+
+Objective: Validate navigation flow from cart to product listing
+Steps:
+
+Add a product and navigate to the cart
+
+Click “Continue Shopping”
+
+Expected Result:
+User is redirected back to the products page and the cart retains selected items
+
+TC006 – Logout Functionality
+
+Objective: Validate logout process
+Steps:
+
+Login
+
+Open menu and perform logout
+
+Expected Result:
+User is redirected to the login page
+
+Tech Stack
+
+Framework: Playwright
+
+Language: JavaScript
+
+Test Pattern: Page Object Model (concepts)
+
+Assertions: Playwright expect library
+
+Setup & Installation
 # Install dependencies
 npm init playwright@latest
 
@@ -97,30 +117,20 @@ npx playwright test --headed
 
 # Generate HTML report
 npx playwright show-report
-```
 
-## 🎬 Test Execution
-
-### Run all tests
-```bash
+Test Execution
+Run all tests
 npx playwright test checkout.spec.js
-```
 
-### Run single test
-```bash
+Run a single test case
 npx playwright test checkout.spec.js -g "TC001"
-```
 
-### Run with specific browser
-```bash
+Run with a specific browser
 npx playwright test checkout.spec.js --project=chromium
 npx playwright test checkout.spec.js --project=firefox
 npx playwright test checkout.spec.js --project=webkit
-```
 
-## 📊 Test Results
-
-```
+Test Results
 Running 6 tests using 1 worker
 
 ✓ TC001 - Complete checkout process with valid credentials (5.2s)
@@ -131,42 +141,50 @@ Running 6 tests using 1 worker
 ✓ TC006 - Logout functionality (2.0s)
 
 6 passed (16.3s)
-```
 
-## 🔍 Key Features
+Key Features
 
-✅ **Comprehensive Coverage** - Covers happy path, negative scenarios, dan edge cases  
-✅ **Maintainable** - Clean code structure dengan clear test steps  
-✅ **Reusable** - beforeEach hook untuk setup yang efficient  
-✅ **Reliable** - Menggunakan proper waits dan assertions  
-✅ **Descriptive** - Test names yang jelas dan self-documenting
+✅ Comprehensive Coverage – Covers happy paths, negative scenarios, and edge cases
+✅ Maintainable – Clean code structure with clear test steps
+✅ Reusable – Efficient setup using beforeEach hooks
+✅ Reliable – Uses proper waits and assertions
+✅ Descriptive – Self-documenting and readable test names
 
-## 📈 Best Practices Applied
+📈 Best Practices Applied
 
-- ✨ Descriptive test names dengan TC numbering
-- 🎯 Single responsibility per test case
-- 🔄 Setup dan teardown menggunakan hooks
-- 📝 Clear comments untuk setiap test step
-- 🎨 Consistent selector strategy
-- ✔️ Multiple assertion points untuk thorough validation
+✨ Descriptive test names with TC numbering
 
-## 🚀 Future Improvements
+🎯 Single responsibility per test case
 
-- [ ] Implement Page Object Model pattern
-- [ ] Add API testing untuk data setup
-- [ ] Integrate with CI/CD pipeline
-- [ ] Add visual regression testing
-- [ ] Implement test data management
-- [ ] Add performance testing metrics
+🔄 Setup and teardown using hooks
 
-## 📝 Notes
+📝 Clear comments for each test step
 
-Test suite ini dibuat untuk demo testing automation capabilities menggunakan public demo site [SauceDemo](https://www.saucedemo.com).
+🎨 Consistent locator strategy
 
----
+✔️ Multiple assertion points for thorough validation
 
-**Author:** [Your Name]  
-**Role:** QA Engineer | Test Automation  
-**Tools:** Playwright, JavaScript, GitHub Actions
+🚀 Future Improvements
+
+ Implement full Page Object Model (POM) pattern
+
+ Add API testing for test data setup
+
+ Integrate with CI/CD pipeline
+
+ Add visual regression testing
+
+ Implement test data management
+
+ Add performance testing metrics
+
+📝 Notes
+
+This test suite is created to demonstrate automation testing capabilities using the public demo site
+SauceDemo → https://www.saucedemo.com
+
+Author: Yudi Anggriawan
+Role: QA Engineer | Test Automation
+Tools: Playwright, JavaScript, GitHub Actions
 
 #QA #TestAutomation #Playwright #JavaScript #E2ETesting
